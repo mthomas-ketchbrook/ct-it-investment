@@ -99,4 +99,11 @@ p <- ggplot(plot.df, aes(rank, group = function_of_government,
   transition_states(year, transition_length = 4, state_length = 1) +
   ease_aes('cubic-in-out')
 
-animate(p, fps = 25, duration = 20, width = 800, height = 600)
+# Create a gif
+# animate(p, fps = 25, duration = 20, width = 800, height = 600)
+
+# Create an mp4
+a <- animate(p, fps = 25, duration = 20, width = 800, height = 600, renderer = av_renderer())
+
+gganimate::anim_save("chart_vid.mp4", a)
+
